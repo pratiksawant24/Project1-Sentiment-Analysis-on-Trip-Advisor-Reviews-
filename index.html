@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html >
+<style>
+body,,html{
+    height: 100%;
+    margin:0;
+}
+body{
+  position:relative;
+    padding: 0;	
+  background-image: url(https://debanked.com/roobify/img/deBanked-36718678019846.jpg);
+/* Full height */
+  height: 100%;
+  width: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-size: 100% auto;
+}
+</style>
+<body>
+
+<head>
+  <meta charset="UTF-8">
+    <title>prediction Model</title>
+</head>
+<form action="{{ url_for('predict')}}" method="POST">
+    <fieldset>
+        <legend><p style="color:white;">Input values:</legend>
+        <p style="color:white;">TITLE:	
+        <input name="Title" type="text" required="required" />
+        
+        REVIEW:
+        <input name="Review" type="text" required="required" />
+              
+        
+        <input type="submit">
+    </fieldset>
+</form>
+
+
+<div class="value" align="left">
+    {% if ratingText %}
+    	<br> 
+   		<p style="font-size:20px;color:white"> Review Text entered : {{ rvText }}</p>
+	<br>
+    		<p style="font-size:20px;color:white">Polarity Calculated : {{ polText }}</p>
+	<br> 
+   		<p style="font-size:20px;color:white">Words that caught attention : {{ catchyText }}</p>
+	<br>
+		<p style="font-size:30px;color:Green;font-weight: bold">Predicted Sentiment: {{ sentiText }}</p>
+	<p style="font-size:30px;color:Green;font-weight: bold">Predicted Rating: {{ ratingText }}</p>
+	<br>
+    {% endif %}
+</div>
+</body>
+
+
+</html>
